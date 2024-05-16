@@ -43,11 +43,10 @@ class Person(BaseModel):
 
 
 class Adoption(BaseModel):
-    dog: Dog = models.ForeignKey(
+    dog: Dog = models.OneToOneField(
         to=Dog,
         on_delete=models.PROTECT,
         related_name="adoption",
-        unique=True,
     )
     person: Person = models.ForeignKey(
         to=Person,
