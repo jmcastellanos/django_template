@@ -27,6 +27,7 @@ class Dog(BaseModel):
         max_length=128,
         default=None,
         null=True,
+        blank=True,
     )
     birthday: datetime.date = models.DateField()
 
@@ -38,4 +39,18 @@ class Person(BaseModel):
     )
     last_name: str = models.CharField(
         max_length=254,
+    )
+
+
+class Adoption(BaseModel):
+    dog: Dog = models.ForeignKey(
+        to=Dog,
+        on_delete=models.PROTECT,
+        related_name="adoption",
+        unique=True,
+    )
+    person: Person = models.ForeignKey(
+        to=Person,
+        on_delete=models.PROTECT,
+        related_name="adoptions",
     )
