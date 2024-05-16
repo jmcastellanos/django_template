@@ -4,7 +4,7 @@ https://docs.djangoproject.com/en/5.0/ref/contrib/admin/
 """
 
 from django.contrib import admin
-from dog_adoption.models import Dog, Person
+from dog_adoption.models import Dog, Person, Adoption
 
 
 @admin.register(Dog)
@@ -17,3 +17,6 @@ class PersonAdmin(admin.ModelAdmin):
     pass
 
 
+@admin.register(Adoption)
+class AdoptionAdmin(admin.ModelAdmin):
+    pass
