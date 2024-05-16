@@ -38,6 +38,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    # Third party apps
+    'rest_framework',
+
+    # Local Apps
     # << DPA Comment >>: created apps need to be added in this list
     'dog_adoption',
 ]
