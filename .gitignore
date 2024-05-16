@@ -1,0 +1,7 @@
+.idea/
+*.pyc
+
+playground/
+
+.DS_Store
+
