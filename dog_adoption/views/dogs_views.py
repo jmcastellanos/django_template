@@ -1,6 +1,8 @@
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
+from django_template.external_services.paypal_service import PaypalService
+from django_template.external_services_provider import ExternalApisProvider
 from dog_adoption.models import Adoption, Dog, Person
 from dog_adoption.serializers import AdoptionSerializer, DogSerializer
 
@@ -43,3 +45,20 @@ class DogAdoptionView(APIView):
         adoptions = Adoption.objects.all()
         data = AdoptionSerializer(instance=adoptions, many=True,).data
         return Response(data=data)
+
+
+class PaymentView(APIView):
+
+    def post(self, request, ):
+        """
+        Creates and adoption
+        """
+        apis_provider = ExternalApisProvider()
+        paypal_api = apis_provider.get_paypal_api()
+        paypal_service = PaypalService(paypal_api=paypal_api)
+        payment_id = paypal_service.create_payment(
+            owner=request.data["owner"],
+            source=request.data["source"],
+            destination=request.data["destination"],
+        )
+        return Response(data={"payment_id": payment_id})

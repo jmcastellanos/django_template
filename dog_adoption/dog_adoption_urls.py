@@ -1,6 +1,7 @@
 from django.urls import path
 
-from dog_adoption.views.dogs_views import NotAdoptedDogsViews, DogAdoptionView
+from dog_adoption.views.dogs_views import NotAdoptedDogsViews, DogAdoptionView,\
+    PaymentView
 
 urlpatterns = [
     path(
@@ -14,5 +15,12 @@ urlpatterns = [
         DogAdoptionView.as_view(),
         name="dog_adoption",
     ),
+
+    path(
+        "api/dog_adoption/payment",
+        PaymentView.as_view(),
+        name="payment",
+    ),
+
 
 ]
