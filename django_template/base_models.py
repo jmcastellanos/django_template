@@ -6,6 +6,7 @@ from django.db import models
 
 class BaseModel(models.Model):
     """
+    << DPA Comment >>
     Abstract model will be the base (skeleton)
     for future models
     """

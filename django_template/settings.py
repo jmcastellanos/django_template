@@ -37,6 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    # << DPA Comment >>: created apps need to be added in this list
+    'dog_adoption',
 ]
 
 MIDDLEWARE = [
