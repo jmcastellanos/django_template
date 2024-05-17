@@ -1,3 +1,5 @@
+from http import HTTPStatus
+
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
@@ -13,7 +15,9 @@ class NotAdoptedDogsViews(APIView):
         """
         Retrieves all the dogs that don't have owner yet
         """
+        # filtering dogs
         dogs = Dog.objects.filter(adoption__isnull=True)
+        # serializing dogs
         data = DogSerializer(instance=dogs, many=True).data
 
         return Response(data=data)
@@ -36,7 +40,10 @@ class DogAdoptionView(APIView):
         )
         adoption.save()
 
-        return Response(data={"adoption_id": str(adoption.id)})
+        return Response(
+            data={"adoption_id": str(adoption.id)},
+            status=HTTPStatus.CREATED,
+        )
 
     def get(self, request):
         """
