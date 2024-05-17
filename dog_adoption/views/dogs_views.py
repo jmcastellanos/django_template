@@ -6,6 +6,7 @@ from rest_framework.views import APIView
 from django_template.external_services.paypal_service import PaypalService
 from django_template.external_services_provider import ExternalApisProvider
 from dog_adoption.models import Adoption, Dog, Person
+from dog_adoption.resolvers.create_adoption_resolver import CreateAdoptionResolver
 from dog_adoption.serializers import AdoptionSerializer, DogSerializer
 
 
@@ -27,18 +28,13 @@ class DogAdoptionView(APIView):
 
     def post(self, request, ):
         """
-        Creates and adoption
+        Creates and adoption using a resolver.
         """
-        person_id = request.data["person_id"]
-        dog_id = request.data["dog_id"]
-
-        dog = Dog.objects.get(id=dog_id)
-        person = Person.objects.get(id=person_id)
-        adoption = Adoption(
-            dog=dog,
-            person=person,
+        resolver = CreateAdoptionResolver()
+        adoption = resolver.resolve(
+            person_id=request.data["person_id"],
+            dog_id=request.data["dog_id"],
         )
-        adoption.save()
 
         return Response(
             data={"adoption_id": str(adoption.id)},

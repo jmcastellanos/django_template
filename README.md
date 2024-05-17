@@ -56,5 +56,8 @@ To see available django commands run:
 And particular options for that command running
 `python manage.py <the command> --help`
 
+## DPA Team ##
+In order to see special comments, look for: `<< DPA Comment >>` in the code.
+
 ### Contact ###
 * juanmanuel.ca.se@gmail.com
