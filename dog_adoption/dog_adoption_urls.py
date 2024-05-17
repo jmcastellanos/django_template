@@ -1,7 +1,8 @@
 from django.urls import path
 
-from dog_adoption.views.dogs_views import NotAdoptedDogsViews, DogAdoptionView,\
-    PaymentView
+from dog_adoption.views.dogs_views import NotAdoptedDogsViews
+from dog_adoption.views.dog_adoption_view import DogAdoptionView
+from dog_adoption.views.payment_view import PaymentView
 
 urlpatterns = [
     path(

@@ -27,7 +27,7 @@ class PersonSerializer(serializers.ModelSerializer):
         is recommended to do it outside the serializer (Serialization occurs once per
         each instance, and could bring latency in the response)
         """
-        return obj.first_name + " " + obj.last_name
+        return obj.full_name
 
     class Meta:
         model = Person

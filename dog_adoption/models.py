@@ -41,6 +41,10 @@ class Person(BaseModel):
         max_length=254,
     )
 
+    @property
+    def full_name(self) -> str:
+        return self.first_name + ' ' + self.last_name
+
 
 class Adoption(BaseModel):
     dog: Dog = models.OneToOneField(
