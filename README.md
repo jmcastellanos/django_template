@@ -59,5 +59,12 @@ And particular options for that command running
 ## DPA Team ##
 In order to see special comments, look for: `<< DPA Comment >>` in the code.
 
+
+### Available endpoints ###
+GET `api/dog_adoption/not_adopted_dogs`
+GET `api/dog_adoption/adoption`
+POST `api/dog_adoption/adoption` data: {"person_id": <uuid>, "dog_id": <uuid>}
+POST `api/dog_adoption/payments/payment` data: {"owner": <str>, "source": <str>, "destination": <str>}
+
 ### Contact ###
 * juanmanuel.ca.se@gmail.com

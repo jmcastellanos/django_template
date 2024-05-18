@@ -2,7 +2,7 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 
 from dog_adoption.models import Dog
-from dog_adoption.serializers import DogSerializer
+from dog_adoption.serializers.dog_serializer import DogSerializer
 
 
 class NotAdoptedDogsViews(APIView):

@@ -5,7 +5,7 @@ from rest_framework.views import APIView
 
 from dog_adoption.models import Adoption
 from dog_adoption.resolvers.create_adoption_resolver import CreateAdoptionResolver
-from dog_adoption.serializers import AdoptionSerializer
+from dog_adoption.serializers.adoption_serializer import AdoptionSerializer
 
 
 class DogAdoptionView(APIView):
