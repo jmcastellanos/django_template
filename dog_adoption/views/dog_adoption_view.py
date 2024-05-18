@@ -9,6 +9,13 @@ from dog_adoption.serializers.adoption_serializer import AdoptionSerializer
 
 
 class DogAdoptionView(APIView):
+    """
+    In the views we can add permissions and authentication required for our views,
+    using parameters like: authentication_classes, permission_classes.
+
+    To see more information, check:
+    https://www.django-rest-framework.org/api-guide/views/
+    """
 
     def post(self, request, ):
         """
